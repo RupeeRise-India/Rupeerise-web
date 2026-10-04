@@ -22,10 +22,10 @@ export default function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Capitals", href: "#" },
-    { name: "Real Estate", href: "#" },
-    { name: "Investors", href: "#" },
-    { name: "Learning", href: "#" },
+    { name: "Capitals", href: "/verticals/capital" },
+    { name: "Real Estate", href: "/verticals/real-estate" },
+    { name: "Investors", href: "/verticals/investors" },
+    { name: "Learning", href: "/verticals/learning" },
   ];
 
   return (
@@ -49,7 +49,9 @@ export default function Header() {
 
         <div className="flex-1 flex items-center justify-end gap-4">
            <div className="hidden lg:block">
-             <Button variant="secondary" icon="arrow">Contact Us</Button>
+             <a href="/contact">
+               <Button variant="secondary" icon="arrow">Contact Us</Button>
+             </a>
            </div>
            
            {/* Hamburger Icon */}
@@ -87,7 +89,9 @@ export default function Header() {
                 </a>
               ))}
               <div className="mt-8" onClick={() => setIsOpen(false)}>
-                <Button variant="secondary" icon="arrow">Contact Us</Button>
+                <a href="/contact">
+                  <Button variant="secondary" icon="arrow">Contact Us</Button>
+                </a>
               </div>
             </nav>
           </motion.div>

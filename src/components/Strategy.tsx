@@ -43,8 +43,8 @@ export default function Strategy() {
         <AnimatedSection delay={0.2} direction="right">
           <div className="bg-[#0a0b0d] rounded-[2rem] p-10 relative overflow-hidden group min-h-[280px] flex flex-col justify-end border border-white/5">
             <div className="absolute inset-x-0 top-0 h-full z-0">
-               <Image src="/images/Wave.jpg" alt="Wave background" fill className="object-cover object-top opacity-80" />
-               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0b0d]/60 to-[#0a0b0d]"></div>
+               <Image src="/images/dark-wave-bg.png" alt="Wave background" fill className="object-cover object-center opacity-100" />
+               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b0d] via-[#0a0b0d]/50 to-transparent"></div>
             </div>
             <div className="relative z-10 mt-16">
               <h3 className="text-4xl font-medium text-brand-gold mb-4">4 Verticals</h3>
@@ -59,8 +59,8 @@ export default function Strategy() {
         <AnimatedSection delay={0.3} direction="right">
           <div className="bg-[#0a0b0d] rounded-[2rem] p-10 relative overflow-hidden group min-h-[280px] flex flex-col justify-end border border-white/5">
             <div className="absolute inset-x-0 top-0 h-full z-0">
-               <Image src="/images/Wave.jpg" alt="Wave background" fill className="object-cover object-top opacity-80" />
-               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0b0d]/60 to-[#0a0b0d]"></div>
+               <Image src="/images/dark-wave-bg.png" alt="Wave background" fill className="object-cover object-center opacity-100" />
+               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b0d] via-[#0a0b0d]/50 to-transparent"></div>
             </div>
             <div className="relative z-10 mt-16">
               <h3 className="text-4xl font-medium text-brand-gold mb-4">1 Ecosystem</h3>

@@ -10,25 +10,29 @@ export default function Verticals() {
       title: "Capital",
       subtitle: "Capital Management",
       desc: "Our structural foundation builds the network of interconnected ecosystem layers.",
-      img: "/images/gold-coin-stacks.jpg"
+      img: "/images/gold-coin-stacks.jpg",
+      href: "/verticals/capital"
     },
     {
       title: "Real Estate",
       subtitle: "RE Brokerage",
       desc: "Agility recognizes and creates movement connecting our global networks.",
-      img: "/images/dubai-night-cityscape.jpg"
+      img: "/images/dubai-night-cityscape.jpg",
+      href: "/verticals/real-estate"
     },
     {
       title: "Investment & Portfolio",
       subtitle: "Asset Protection",
       desc: "Strategic investments to secure and grow our foundation globally.",
-      img: "/images/glowing-globe-africa-europe.jpg"
+      img: "/images/glowing-globe-africa-europe.jpg",
+      href: "/verticals/investors"
     },
     {
       title: "Learning",
       subtitle: "Knowledge Sharing",
       desc: "Empowering our ecosystem through data and collective continuous growth.",
-      img: "/images/office-meeting.jpg"
+      img: "/images/office-meeting.jpg",
+      href: "/verticals/learning"
     }
   ];
 
@@ -50,7 +54,7 @@ export default function Verticals() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {cards.map((card, idx) => (
           <AnimatedSection key={idx} delay={0.1 + idx * 0.1}>
-            <div className="relative rounded-[2rem] overflow-hidden min-h-[420px] p-8 flex flex-col justify-end group cursor-pointer h-full">
+            <a href={card.href} className="relative rounded-[2rem] overflow-hidden min-h-[420px] p-8 flex flex-col justify-end group cursor-pointer h-full block">
               <div className="absolute inset-0 z-0">
                 <Image 
                   src={card.img} 
@@ -58,7 +62,7 @@ export default function Verticals() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               </div>
               
               <div className="relative z-10 text-brand-light transform transition-transform duration-500 group-hover:-translate-y-2">
@@ -71,7 +75,7 @@ export default function Verticals() {
                 </p>
                 <Button variant="secondary" icon="arrow">Explore</Button>
               </div>
-            </div>
+            </a>
           </AnimatedSection>
         ))}
       </div>
