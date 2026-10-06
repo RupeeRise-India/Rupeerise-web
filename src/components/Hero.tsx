@@ -72,8 +72,8 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap items-center gap-5 animate-enter" style={{ animationDelay: '0.4s' }}>
-          <Button variant="secondary" icon="play">View Demo</Button>
-          <Button variant="primary" icon="arrow">Get Started</Button>
+          <Button variant="secondary" icon="arrow" href="/#verticals">Explore Our Verticals</Button>
+          <Button variant="primary" icon="arrow" href="/contact">Contact Us</Button>
         </div>
       </div>
     </section>

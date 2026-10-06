@@ -73,7 +73,7 @@ export default function Footer() {
             <h5 className="text-[10px] uppercase tracking-widest font-bold text-[#c7a468] mb-1">Navigate</h5>
             <a href="/about" className="text-[13px] text-white hover:text-brand-gold transition-colors">About</a>
             <a href="/#verticals" className="text-[13px] text-white hover:text-brand-gold transition-colors">Verticals</a>
-            <a href="#" className="text-[13px] text-white hover:text-brand-gold transition-colors">FAQ</a>
+            <a href="/#faq" className="text-[13px] text-white hover:text-brand-gold transition-colors">FAQ</a>
             <a href="/contact" className="text-[13px] text-white hover:text-brand-gold transition-colors">Contact</a>
           </div>
           <div className="flex flex-col gap-4">
@@ -95,7 +95,7 @@ export default function Footer() {
       {/* Footer Bottom */}
       <div className="w-full max-w-[1310px] mx-auto px-8 relative z-10 border-t border-white/5 pt-8 mb-4">
         <p className="text-white/40 text-[11px]">
-          © 2026 RupeeRise. All rights reserved.
+          © 2026 Rupee Rise Ventures. All rights reserved.
         </p>
       </div>
 

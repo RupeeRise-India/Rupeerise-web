@@ -25,8 +25,8 @@ export default function CTA() {
         </AnimatedSection>
         <AnimatedSection delay={0.3} direction="up">
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button variant="primary" icon="calendar">BOOK A CALL</Button>
-            <Button variant="secondary" icon="arrow">SEE OUR WORK</Button>
+            <Button variant="primary" icon="calendar" href="/contact">BOOK A CALL</Button>
+            <Button variant="secondary" icon="arrow" href="/#verticals">EXPLORE OUR VENTURES</Button>
           </div>
         </AnimatedSection>
       </div>

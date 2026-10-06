@@ -22,7 +22,7 @@ export default function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Capitals", href: "/verticals/capital" },
+    { name: "Capital", href: "/verticals/capital" },
     { name: "Real Estate", href: "/verticals/real-estate" },
     { name: "Investors", href: "/verticals/investors" },
     { name: "Learning", href: "/verticals/learning" },

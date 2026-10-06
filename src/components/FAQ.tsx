@@ -18,8 +18,8 @@ export default function FAQ() {
       a: "It helps create the conditions for sustainable growth. Our focus is on actionable strategies, giving founders exposure across capital, real estate, and business consulting to build long-term value."
     },
     {
-      q: "Do you invest outside the UAE or primarily locally?",
-      a: "With a presence and market focus across India and Dubai, our verticals connect property and business opportunities with buyers, investors and partners across these dynamic and internationally relevant markets."
+      q: "Where do you operate?",
+      a: "We are based in Kochi, Trivandrum, Hyderabad and Bangalore, and work on real estate opportunities across India and Dubai."
     },
     {
       q: "How quickly do you close investment rounds?",
@@ -28,7 +28,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="w-full bg-[#131416] border border-white/5 rounded-3xl p-8 md:p-16 flex flex-col lg:flex-row gap-16 relative overflow-hidden">
+    <section id="faq" className="w-full bg-[#131416] border border-white/5 rounded-3xl p-8 md:p-16 flex flex-col lg:flex-row gap-16 relative overflow-hidden">
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-30">
         <Image src="/images/translucent-yellow-circles.png" alt="FAQ Background" fill className="object-cover" />
       </div>

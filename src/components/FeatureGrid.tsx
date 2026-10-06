@@ -36,10 +36,9 @@ export default function FeatureGrid() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             </div>
             <div className="relative z-10 mt-auto">
-              <p className="text-white/80 text-xs mb-2 font-medium">
-                Commitment to measurable
+              <p className="text-white/80 text-lg mb-2 font-medium">
+                Commitment to measurable growth
               </p>
-              <h3 className="text-6xl font-medium text-brand-gold">100%</h3>
             </div>
           </div>
         </AnimatedSection>
@@ -78,7 +77,7 @@ export default function FeatureGrid() {
             initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
             variants={customVariants} transition={{ ...transitionProps, delay: 0.24 }}
           >
-            <Button variant="primary" icon="arrow">GET STARTED</Button>
+            <Button variant="primary" icon="arrow" href="/about">GET STARTED</Button>
           </motion.div>
         </div>
       </div>
@@ -90,11 +89,11 @@ export default function FeatureGrid() {
         <AnimatedSection delay={0.1}>
           <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
             <div>
-              <p className="text-brand-gold text-[9px] uppercase tracking-widest font-bold mb-6">DATA POINTS</p>
-              <h4 className="text-4xl text-brand-gold font-medium">520k+</h4>
+              <p className="text-brand-gold text-[9px] uppercase tracking-widest font-bold mb-6">VERTICALS</p>
+              <h4 className="text-4xl text-brand-gold font-medium">04</h4>
             </div>
             <p className="text-white/50 text-xs leading-relaxed max-w-[90%]">
-              Analyzed monthly to power smarter business strategies.
+              Capital, Real Estate, Investors & Portfolio, and Learning, under one ecosystem.
             </p>
           </div>
         </AnimatedSection>
@@ -103,11 +102,11 @@ export default function FeatureGrid() {
         <AnimatedSection delay={0.2}>
           <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
             <div>
-              <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mb-6">PARTNERSHIPS</p>
-              <h4 className="text-4xl text-brand-gold font-medium">120+</h4>
+              <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mb-6">MARKETS</p>
+              <h4 className="text-4xl text-brand-gold font-medium">02</h4>
             </div>
             <p className="text-white/50 text-xs leading-relaxed max-w-[90%]">
-              Collaborating with leading AI and cloud technology providers.
+              Strategic opportunities across India and Dubai.
             </p>
           </div>
         </AnimatedSection>
@@ -116,7 +115,7 @@ export default function FeatureGrid() {
         <AnimatedSection delay={0.3}>
           <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
             <p className="text-white/80 text-sm leading-relaxed">
-              "Their automation strategy completely reshaped how we work. It's efficient, intelligent, and seamless."
+              "Growth begins with the right opportunity, the right strategy and the courage to build."
             </p>
             <div className="flex items-center -space-x-2 mt-6">
               {['/images/woman-smiling-over-shoulder.jpg', '/images/man-smiling-sweater.jpg', '/images/woman-high-key-portrait.jpg', '/images/woman-smiling-long-hair.jpg'].map((img, i) => (
@@ -132,11 +131,11 @@ export default function FeatureGrid() {
         <AnimatedSection delay={0.4}>
           <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
             <div>
-              <p className="text-brand-gold text-[9px] uppercase tracking-widest font-bold mb-6">CONTINENTS</p>
-              <h4 className="text-4xl text-brand-gold font-medium">20+</h4>
+              <p className="text-brand-gold text-[9px] uppercase tracking-widest font-bold mb-6">PRESENCE</p>
+              <h4 className="text-4xl text-brand-gold font-medium">05</h4>
             </div>
             <p className="text-white/50 text-xs leading-relaxed max-w-[90%]">
-              Teams and clients across every major market.
+              Kochi, Trivandrum, Hyderabad, Bangalore and Dubai
             </p>
           </div>
         </AnimatedSection>
