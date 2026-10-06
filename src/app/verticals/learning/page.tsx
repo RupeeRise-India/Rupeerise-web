@@ -10,10 +10,39 @@ import Button from '@/components/Button';
 // Dummy Email Signup
 function NotifyForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'Learning',
+          email
+        })
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Failed to subscribe. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Failed to subscribe. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
   
   return (
     <form 
-      onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+      onSubmit={handleSubmit}
       className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto"
     >
       {submitted ? (
@@ -25,11 +54,13 @@ function NotifyForm() {
           <input 
             required 
             type="email" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email" 
             className="flex-1 bg-black/20 border border-white/10 rounded-full px-6 py-3 text-white focus:outline-none focus:border-brand-gold/50 text-sm"
           />
-          <button type="submit" className="bg-brand-gold text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-white transition-colors whitespace-nowrap">
-            Notify Me
+          <button type="submit" disabled={loading} className="bg-brand-gold text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-white transition-colors whitespace-nowrap disabled:opacity-50">
+            {loading ? 'Submitting...' : 'Notify Me'}
           </button>
         </>
       )}

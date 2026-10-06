@@ -19,6 +19,14 @@ export default function ContactForm() {
   const [selectedInterest, setSelectedInterest] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '+91 ',
+    company: '',
+    message: ''
+  });
 
   useEffect(() => {
     const interest = searchParams.get('interest');
@@ -27,14 +35,33 @@ export default function ContactForm() {
     }
   }, [searchParams]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'Contact',
+          interest: selectedInterest,
+          ...formData
+        })
+      });
+      
+      if (res.ok) {
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', phone: '+91 ', company: '', message: '' });
+      } else {
+        alert('Failed to send enquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to send enquiry. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1500);
+    }
   };
 
   if (isSuccess) {
@@ -64,19 +91,19 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
           <label className="text-[10px] text-white/50 uppercase tracking-widest font-bold ml-4">Full Name*</label>
-          <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" placeholder="Jane Doe" />
+          <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" placeholder="Jane Doe" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] text-white/50 uppercase tracking-widest font-bold ml-4">Email*</label>
-          <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" placeholder="jane@company.com" />
+          <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" placeholder="jane@company.com" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] text-white/50 uppercase tracking-widest font-bold ml-4">Phone*</label>
-          <input required type="tel" defaultValue="+91 " className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" />
+          <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] text-white/50 uppercase tracking-widest font-bold ml-4">Company / Organisation</label>
-          <input type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" placeholder="Optional" />
+          <input type="text" value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20" placeholder="Optional" />
         </div>
       </div>
 
@@ -102,7 +129,7 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-2 mt-2">
         <label className="text-[10px] text-white/50 uppercase tracking-widest font-bold ml-4">Message*</label>
-        <textarea required rows={5} className="w-full bg-white/5 border border-white/10 rounded-[24px] px-6 py-5 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20 resize-none" placeholder="Tell us briefly what you're looking for."></textarea>
+        <textarea required rows={5} value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-[24px] px-6 py-5 text-white text-sm focus:outline-none focus:border-brand-gold/50 transition-colors placeholder:text-white/20 resize-none" placeholder="Tell us briefly what you're looking for."></textarea>
       </div>
 
       <div className="flex flex-col sm:flex-row items-center gap-6 mt-4 justify-between">

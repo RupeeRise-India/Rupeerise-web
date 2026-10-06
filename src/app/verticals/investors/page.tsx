@@ -11,14 +11,41 @@ import Button from '@/components/Button';
 function InvestorForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    timeline: '',
+    message: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'Investor',
+          ...formData
+        })
+      });
+      
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Failed to send enquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to send enquiry. Please try again.');
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1500);
+    }
   };
 
   if (submitted) {
@@ -39,22 +66,22 @@ function InvestorForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
           <label className="text-white/60 text-[11px] font-bold uppercase tracking-widest">Full Name *</label>
-          <input required type="text" className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors" />
+          <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-white/60 text-[11px] font-bold uppercase tracking-widest">Email Address *</label>
-          <input required type="email" className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors" />
+          <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors" />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
           <label className="text-white/60 text-[11px] font-bold uppercase tracking-widest">Phone Number *</label>
-          <input required type="tel" className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors" />
+          <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-white/60 text-[11px] font-bold uppercase tracking-widest">Service Required *</label>
-          <select required className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors appearance-none">
-            <option value="" disabled selected>Select a service</option>
+          <select required value={formData.service} onChange={e => setFormData({...formData, service: e.target.value})} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors appearance-none">
+            <option value="" disabled>Select a service</option>
             <option value="portfolio">Portfolio Management</option>
             <option value="consulting">Business Consulting</option>
             <option value="both">Both</option>
@@ -63,8 +90,8 @@ function InvestorForm() {
       </div>
       <div className="flex flex-col gap-2">
         <label className="text-white/60 text-[11px] font-bold uppercase tracking-widest">Investment Horizon</label>
-        <select className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors appearance-none">
-          <option value="" disabled selected>Select timeline</option>
+        <select value={formData.timeline} onChange={e => setFormData({...formData, timeline: e.target.value})} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors appearance-none">
+          <option value="" disabled>Select timeline</option>
           <option value="short">Short Term (1-3 years)</option>
           <option value="medium">Medium Term (3-7 years)</option>
           <option value="long">Long Term (7+ years)</option>
@@ -72,7 +99,7 @@ function InvestorForm() {
       </div>
       <div className="flex flex-col gap-2">
         <label className="text-white/60 text-[11px] font-bold uppercase tracking-widest">Message (Optional)</label>
-        <textarea rows={3} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors"></textarea>
+        <textarea rows={3} value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 transition-colors"></textarea>
       </div>
       <button 
         type="submit" 
