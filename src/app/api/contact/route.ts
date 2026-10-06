@@ -79,7 +79,7 @@ export async function POST(req: Request) {
 
     try {
       await resend.emails.send({
-        from: 'Rupee Rise <onboarding@resend.dev>',
+        from: 'onboarding@resend.dev',
         to: ['karthikdude0022@gmail.com', 'rupeerise15@gmail.com'],
         subject: adminSubject,
         html: adminHtml,
@@ -90,7 +90,7 @@ export async function POST(req: Request) {
 
     try {
       await resend.emails.send({
-        from: 'Rupee Rise <onboarding@resend.dev>',
+        from: 'onboarding@resend.dev',
         to: [email],
         subject: userSubject,
         html: userHtml,

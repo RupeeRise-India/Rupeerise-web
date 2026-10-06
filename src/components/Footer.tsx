@@ -100,7 +100,7 @@ export default function Footer() {
       </div>
 
       <div className="w-full flex justify-center relative z-0 mt-8">
-        <h1 className={`text-[15vw] font-bold tracking-tighter leading-none pointer-events-none select-none flex ${instrumentSans.className}`}>
+        <h1 className={`text-[15vw] font-bold tracking-normal leading-none pointer-events-none select-none flex ${instrumentSans.className}`}>
           {"RupeeRise".split("").map((letter, i) => (
             <motion.span
               key={i}
