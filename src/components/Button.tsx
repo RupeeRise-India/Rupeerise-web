@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function Button({ children, variant = 'primary', icon }) {
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
+  icon?: 'play' | 'arrow' | 'calendar';
+}
+
+export default function Button({ children, variant = 'primary', icon }: ButtonProps) {
   const isPrimary = variant === 'primary';
   const baseClasses = "group flex items-center gap-4 rounded-full py-1.5 px-2 pl-6 text-[10px] uppercase font-bold tracking-[0.18em] transition-all hover:scale-105 duration-300";
   

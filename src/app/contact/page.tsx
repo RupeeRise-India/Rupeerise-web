@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
 import AnimatedSection from '@/components/AnimatedSection';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';

@@ -6,7 +6,7 @@ import { Instrument_Sans } from 'next/font/google';
 
 const instrumentSans = Instrument_Sans({ subsets: ['latin'] });
 
-const letterVariants = {
+const letterVariants: any = {
   animate: (i: number) => ({
     textShadow: [
       "0px 0px 0px rgba(199,164,104,0)",

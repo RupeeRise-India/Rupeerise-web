@@ -7,7 +7,7 @@ const customVariants = {
   visible: { opacity: 1, y: 0 }
 };
 
-const transitionProps = {
+const transitionProps: any = {
   duration: 1.1,
   ease: [0.45, 0, 0.25, 1]
 };

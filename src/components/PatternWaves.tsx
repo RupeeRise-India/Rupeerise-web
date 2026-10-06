@@ -516,13 +516,13 @@ const PatternWaves = ({
     if (!container) return undefined;
 
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: false, depth: false });
-    const gl = renderer.gl as WebGL2RenderingContext;
+    const gl = renderer.gl as any;
     if (!renderer.isWebgl2) {
       gl.getExtension('WEBGL_lose_context')?.loseContext();
       return undefined;
     }
     gl.clearColor(0, 0, 0, 0);
-    const canvas = gl.canvas;
+    const canvas = gl.canvas as HTMLCanvasElement;
     canvas.style.display = 'block';
     canvas.style.width = '100%';
     canvas.style.height = '100%';
