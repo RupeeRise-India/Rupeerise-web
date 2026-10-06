@@ -18,8 +18,8 @@ export default function Home() {
         <Header />
         <div className="flex flex-col gap-24 mt-4">
           <Hero />
-          {/* <Stats /> */}
-          {/* <LogoTicker /> */}
+          <Stats />
+          <LogoTicker />
           <FeatureGrid />
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function Home() {
 
       <div className="w-full bg-brand-dark text-brand-light py-24 px-6 md:px-10">
         <div className="max-w-[1536px] mx-auto flex flex-col gap-24">
-          {/* <Testimonials /> */}
+          <Testimonials />
           <FAQ />
           <CTA />
           <Footer />

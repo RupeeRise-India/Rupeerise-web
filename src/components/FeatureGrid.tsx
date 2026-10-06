@@ -36,9 +36,10 @@ export default function FeatureGrid() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             </div>
             <div className="relative z-10 mt-auto">
-              <p className="text-white/80 text-lg mb-2 font-medium">
-                Commitment to measurable growth
+              <p className="text-white/80 text-xs mb-2 font-medium">
+                Commitment to measurable
               </p>
+              <h3 className="text-6xl font-medium text-brand-gold">100%</h3>
             </div>
           </div>
         </AnimatedSection>
@@ -77,7 +78,7 @@ export default function FeatureGrid() {
             initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
             variants={customVariants} transition={{ ...transitionProps, delay: 0.24 }}
           >
-            <Button variant="primary" icon="arrow" href="/about">GET STARTED</Button>
+            <Button variant="primary" icon="arrow">GET STARTED</Button>
           </motion.div>
         </div>
       </div>

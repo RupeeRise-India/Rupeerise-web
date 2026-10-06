@@ -15,11 +15,9 @@ export const metadata = {
 export default function AboutPage() {
   const leadership = [
     { name: "Pooja Raj", role: "Founder & CEO", img: "/images/woman-high-key-portrait.jpg" },
-    /* 
     { name: "Placeholder Name", role: "Executive Director", img: "/images/woman-smiling-long-hair.jpg" },
     { name: "Placeholder Name", role: "Head of Strategy", img: "/images/man-smiling-sweater.jpg" },
     { name: "Placeholder Name", role: "Operations Lead", img: "/images/woman-smiling-over-shoulder.jpg" },
-    */
   ];
 
   const principles = [

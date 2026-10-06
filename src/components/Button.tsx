@@ -1,14 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
 
 interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary';
   icon?: 'play' | 'arrow' | 'calendar';
-  href?: string;
 }
 
-export default function Button({ children, variant = 'primary', icon, href }: ButtonProps) {
+export default function Button({ children, variant = 'primary', icon }: ButtonProps) {
   const isPrimary = variant === 'primary';
   const baseClasses = "group flex items-center gap-4 rounded-full py-1.5 px-2 pl-6 text-[10px] uppercase font-bold tracking-[0.18em] transition-all hover:scale-105 duration-300";
   
@@ -18,8 +16,8 @@ export default function Button({ children, variant = 'primary', icon, href }: Bu
   const iconCirclePrimary = "bg-brand-dark flex items-center justify-center w-6 h-6 rounded-full overflow-hidden";
   const iconCircleSecondary = "bg-white/10 flex items-center justify-center w-6 h-6 rounded-full overflow-hidden";
 
-  const content = (
-    <>
+  return (
+    <button className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}>
       <span>{children}</span>
       <div className={isPrimary ? iconCirclePrimary : iconCircleSecondary}>
         {icon === 'play' ? (
@@ -39,20 +37,6 @@ export default function Button({ children, variant = 'primary', icon, href }: Bu
           </svg>
         ) : null}
       </div>
-    </>
-  );
-
-  if (href) {
-    return (
-      <Link href={href} className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}>
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <button className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}>
-      {content}
     </button>
   );
 }
