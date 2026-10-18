@@ -10,45 +10,72 @@ import ScrollHeading from '@/components/ScrollHeading';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+const assetManagementPillars = [
+  {
+    num: "01",
+    title: "Portfolio Asset Allocation",
+    desc: "Balancing high-growth venture deployments with capital-preserving yield assets across diversified market conditions.",
+    tag: "Allocation Strategy"
+  },
+  {
+    num: "02",
+    title: "Active Asset Stewardship",
+    desc: "Rigorous ongoing oversight, corporate governance, balance sheet optimization and operational value creation.",
+    tag: "Active Governance"
+  },
+  {
+    num: "03",
+    title: "Capital Preservation & Hedging",
+    desc: "Macroeconomic stress testing, liquidity buffers, and calculated risk containment to protect capital downside.",
+    tag: "Risk Mitigation"
+  },
+  {
+    num: "04",
+    title: "Ecosystem Compounding",
+    desc: "Unlocking cross-vertical synergies across private equity, real estate assets, and strategic venture opportunities.",
+    tag: "Value Compounding"
+  }
+];
+
 const evaluationFramework = [
-  { title: "Business", desc: "Business model and fundamentals", img: "/images/capitals/eval_01.webp" },
-  { title: "Management", desc: "Leadership and execution capability", img: "/images/capitals/eval_02.webp" },
-  { title: "Market", desc: "Market and opportunity potential", img: "/images/capitals/eval_03.webp" },
-  { title: "Financials", desc: "Financial position and sustainability", img: "/images/capitals/eval_04.webp" },
-  { title: "Potential", desc: "Scalability and long-term value", img: "/images/capitals/eval_05.webp" },
-  { title: "Risk", desc: "Key risks and considerations", img: "/images/capitals/eval_06.webp" }
+  { title: "Business Model", desc: "Commercial fundamentals, unit economics and scalability", img: "/images/capitals/eval_01.webp" },
+  { title: "Management & Governance", desc: "Leadership capability and execution track record", img: "/images/capitals/eval_02.webp" },
+  { title: "Market Potential", desc: "Addressable market, competitive moat and tailwinds", img: "/images/capitals/eval_03.webp" },
+  { title: "Asset Quality & Financials", desc: "Cash-flow durability, asset quality and balance sheet health", img: "/images/capitals/eval_04.webp" },
+  { title: "Scalability & Growth", desc: "Capital efficiency and long-term enterprise valuation", img: "/images/capitals/eval_05.webp" },
+  { title: "Risk & Capital Protection", desc: "Downside scenarios, liquidity exposure and risk hedging", img: "/images/capitals/eval_06.webp" }
 ];
 
 const whyCards = [
-  { title: "Strategic Approach", desc: "We align capital deployment with long-term strategic goals.", img: "/images/capitals/why_01.webp" },
-  { title: "Disciplined Evaluation", desc: "Rigorous assessment based on fundamentals, not momentum.", img: "/images/capitals/why_02.webp" },
-  { title: "Long-Term Perspective", desc: "We build enduring value beyond immediate returns.", img: "/images/capitals/why_03.webp" },
-  { title: "Connected Ecosystem", desc: "Leveraging our multi-vertical expertise for compounded growth.", img: "/images/capitals/why_04.webp" }
+  { title: "Strategic Asset Stewardship", desc: "We manage capital and assets with long-term responsibility, aligning deployment with disciplined risk mitigation.", img: "/images/capitals/why_01.webp" },
+  { title: "Disciplined Evaluation", desc: "Rigorous assessment based on underlying fundamentals and asset quality, not market hype.", img: "/images/capitals/why_02.webp" },
+  { title: "Compounded Value Creation", desc: "We focus on compounding asset value and building enduring operational resilience across cycles.", img: "/images/capitals/why_03.webp" },
+  { title: "Connected Ecosystem", desc: "Leveraging multi-vertical expertise across capital, real estate, and portfolio advisory in India and Dubai.", img: "/images/capitals/why_04.webp" }
 ];
 
 const whoWeWorkWith = [
-  { title: "Entrepreneurs", img: "/images/capitals/who/who_01.webp" },
-  { title: "Startups", img: "/images/capitals/who/who_02.webp" },
+  { title: "Entrepreneurs & Founders", img: "/images/capitals/who/who_01.webp" },
+  { title: "Growth Stage Startups", img: "/images/capitals/who/who_02.webp" },
   { title: "Established Businesses", img: "/images/capitals/who/who_03.webp" },
-  { title: "Strategic Partners", img: "/images/capitals/who/who_04.webp" },
-  { title: "Investors", img: "/images/capitals/who/who_05.webp" }
+  { title: "Asset Owners & Family Offices", img: "/images/capitals/who/who_04.webp" },
+  { title: "Strategic Capital Investors", img: "/images/capitals/who/who_05.webp" }
 ];
 
 const focusAreas = [
   { id: '01', title: "Strategic capital opportunities", img: "/images/capitals/focus_01_user.jpg" },
-  { id: '02', title: "Business growth", img: "/images/capitals/focus_02.webp" },
+  { id: '02', title: "Asset management", img: "/images/capitals/focus_02.webp" },
   { id: '03', title: "Capital structuring", img: "/images/capitals/focus_03.webp" },
   { id: '04', title: "Strategic partnerships", img: "/images/capitals/focus_04_user.jpg" },
-  { id: '05', title: "Business expansion", img: "/images/capitals/focus_05.webp" },
+  { id: '05', title: "Business growth & expansion", img: "/images/capitals/focus_05.webp" },
   { id: '06', title: "Opportunity evaluation", img: "/images/capitals/focus_06.webp" },
 ];
 
 const approach = [
-  { num: '01', title: "Identify", desc: "See the opportunity", img: "/images/capitals/approach_01.webp" },
-  { num: '02', title: "Evaluate", desc: "Understand the potential", img: "/images/capitals/approach_02.webp" },
-  { num: '03', title: "Structure", desc: "Shape the right framework", img: "/images/capitals/approach_03.webp" },
-  { num: '04', title: "Execute", desc: "Turn strategy into action", img: "/images/capitals/approach_04.webp" },
-  { num: '05', title: "Grow", desc: "Create long-term value", img: "/images/capitals/approach_05.webp" },
+  { num: '01', title: "Identify", desc: "See the opportunity and assess asset potential", img: "/images/capitals/approach_01.webp" },
+  { num: '02', title: "Evaluate", desc: "Understand fundamentals and financial risk", img: "/images/capitals/approach_02.webp" },
+  { num: '03', title: "Structure", desc: "Shape capital framework and asset allocation", img: "/images/capitals/approach_03.webp" },
+  { num: '04', title: "Execute", desc: "Turn strategy into disciplined action", img: "/images/capitals/approach_04.webp" },
+  { num: '05', title: "Grow", desc: "Create enduring, compounded asset value", img: "/images/capitals/approach_05.webp" },
 ];
 
 export default function CapitalPage() {
@@ -73,7 +100,7 @@ export default function CapitalPage() {
     </>
   );
 
-  const heroDescription = "Rupee Rise Capital brings together financial insight, strategic thinking and growth opportunities to help businesses and investors navigate the path ahead.";
+  const heroDescription = "Rupee Rise Capital brings together financial insight, strategic asset management and capital deployment to help businesses, asset owners and investors navigate growth and build enduring value.";
 
   return (
     <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col items-center">
@@ -95,7 +122,7 @@ export default function CapitalPage() {
       </div>
 
       {/* =========================================================================
-          SECTION 2 (LIGHT BREAK): WHERE FINANCE MEETS STRATEGY
+          SECTION 2 (LIGHT BREAK): WHERE FINANCE MEETS STRATEGY & ASSET MANAGEMENT
           ========================================================================= */}
       <div className="w-full bg-[#fcfaf5] text-brand-dark py-24 md:py-32 px-4 md:px-10 border-y border-black/5">
         <div className="max-w-[1536px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-stretch">
@@ -110,15 +137,15 @@ export default function CapitalPage() {
                 className="text-3xl md:text-5xl font-medium leading-tight text-brand-dark mb-8"
               />
               <p className="text-black/70 text-lg leading-relaxed mb-10">
-                Rupee Rise Capital is the capital-focused vertical of Rupee Rise Ventures.<br/>
-                We look beyond the numbers — at the business, its management, its market and its potential.
+                Rupee Rise Capital is the capital and asset-focused vertical of Rupee Rise Ventures.<br/>
+                We look beyond the numbers — at the business, its underlying assets, its management, its market and its long-term compounding potential.
               </p>
             </div>
             
             <div className="bg-white border border-black/10 rounded-3xl p-8 relative overflow-hidden shadow-sm mt-auto">
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 blur-2xl rounded-full"></div>
               <p className="text-brand-dark text-lg leading-relaxed italic relative z-10 font-medium">
-                "We believe capital should do more than fund an opportunity. It should help create the conditions for sustainable growth."
+                "We believe capital and assets should do more than sit passively. They should be actively managed to create the conditions for sustainable, compounded growth."
               </p>
             </div>
           </AnimatedSection>
@@ -134,6 +161,52 @@ export default function CapitalPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             </div>
           </AnimatedSection>
+        </div>
+
+        {/* Dedicated Asset Management & Capital Stewardship Pillars */}
+        <div className="max-w-[1536px] mx-auto mt-20 pt-16 border-t border-black/10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+            <AnimatedSection>
+              <span className="text-brand-gold text-[10px] uppercase tracking-widest font-bold mb-3 block">
+                Asset Stewardship
+              </span>
+              <h3 className="text-3xl md:text-4xl font-medium text-brand-dark tracking-tight">
+                Asset Management & Capital Discipline
+              </h3>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <p className="text-black/60 text-sm max-w-md md:text-right font-light leading-relaxed">
+                Beyond initial capital deployment, our team provides ongoing governance, balance sheet structuring, and asset optimization to protect and compound value across market cycles.
+              </p>
+            </AnimatedSection>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {assetManagementPillars.map((pillar, idx) => (
+              <AnimatedSection key={idx} delay={0.1 + idx * 0.1}>
+                <div className="bg-white border border-black/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full min-h-[260px] group hover:border-brand-gold/50">
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-3xl font-light text-brand-gold font-sans">{pillar.num}</span>
+                      <span className="text-[10px] uppercase tracking-wider text-black/50 px-2.5 py-1 rounded-full bg-black/5 font-medium">
+                        {pillar.tag}
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-medium text-brand-dark mb-3 group-hover:text-brand-gold transition-colors">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-black/65 text-xs leading-relaxed font-light">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-black/5 flex items-center justify-between text-[11px] text-black/40">
+                    <span>Rupee Rise Capitals</span>
+                    <span className="text-brand-gold font-medium">Active Advisory</span>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -253,7 +326,7 @@ export default function CapitalPage() {
             </div>
             <AnimatedSection>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-tight text-white max-w-5xl mx-auto tracking-tight relative z-10 px-4">
-                Capital with a strategic perspective.
+                Capital & Asset Management with a strategic perspective.
               </h2>
             </AnimatedSection>
           </div>
@@ -339,10 +412,10 @@ export default function CapitalPage() {
                 
                 <div className="relative z-10 flex flex-col items-center max-w-2xl">
                   <h2 className="text-4xl md:text-[44px] font-medium mb-6 leading-tight tracking-tight text-white">
-                    Have a capital or business opportunity?
+                    Have a capital or asset opportunity?
                   </h2>
                   <p className="text-[#93949A] text-[15px] mb-12 max-w-md mx-auto leading-relaxed">
-                    Tell us about it — our team will review it and get back to you.
+                    Tell us about your venture, asset portfolio or capital structuring requirements — our advisory desk will evaluate and connect with you.
                   </p>
                   <a href="/contact?interest=capitals">
                     <Button variant="primary" icon="arrow">Submit an Enquiry</Button>

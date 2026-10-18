@@ -8,8 +8,8 @@ export default function Verticals() {
   const cards = [
     {
       title: "Capital",
-      subtitle: "Capital Management",
-      desc: "Our structural foundation builds the network of interconnected ecosystem layers.",
+      subtitle: "Capital & Asset Management",
+      desc: "Strategic capital structuring, active asset management and growth deployment across dynamic markets.",
       img: "/images/gold-coin-stacks.jpg",
       href: "/verticals/capital"
     },
