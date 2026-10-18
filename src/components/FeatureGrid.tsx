@@ -2,10 +2,17 @@
 import React from 'react';
 import Button from './Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import AnimatedSection from './AnimatedSection';
 
 import { motion } from 'framer-motion';
+import { Alex_Brush } from 'next/font/google';
+
+const alexBrush = Alex_Brush({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 const customVariants = {
   hidden: { opacity: 0, y: 38 },
@@ -78,7 +85,9 @@ export default function FeatureGrid() {
             initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
             variants={customVariants} transition={{ ...transitionProps, delay: 0.24 }}
           >
-            <Button variant="primary" icon="arrow">GET STARTED</Button>
+            <Link href="/about">
+              <Button variant="primary" icon="arrow">LEARN MORE</Button>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -112,18 +121,27 @@ export default function FeatureGrid() {
           </div>
         </AnimatedSection>
 
-        {/* Card 3 (Quote + Avatars) */}
+        {/* Card 3 (Executive Quote) */}
         <AnimatedSection delay={0.3}>
-          <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
-            <p className="text-white/80 text-sm leading-relaxed">
-              "Growth begins with the right opportunity, the right strategy and the courage to build."
-            </p>
-            <div className="flex items-center -space-x-2 mt-6">
-              {['/images/woman-smiling-over-shoulder.jpg', '/images/man-smiling-sweater.jpg', '/images/woman-high-key-portrait.jpg', '/images/woman-smiling-long-hair.jpg'].map((img, i) => (
-                <div key={i} className="w-6 h-6 rounded-full relative overflow-hidden bg-[#1c1d20] border border-white/10 z-10">
-                  <Image src={img} alt="Avatar" fill className="object-cover" />
-                </div>
-              ))}
+          <div className="bg-[#0a0b0d] p-7 md:p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full relative overflow-hidden group">
+            {/* Background subtle watermark quotation mark */}
+            <div className="absolute top-2 right-4 text-white/[0.04] select-none pointer-events-none font-serif text-7xl leading-none">
+              “
+            </div>
+
+            <div className="relative z-10">
+              <p className="text-white/90 text-[13px] leading-relaxed italic font-light">
+                “Greatness isn't built on opportunity alone. It's built on the strategy to recognise it, the courage to pursue it, and the vision to turn it into lasting value.”
+              </p>
+            </div>
+
+            <div className="relative z-10 mt-6 pt-3 border-t border-white/10 flex flex-col">
+              <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mb-0.5">
+                Managing Director
+              </p>
+              <p className={`text-brand-gold text-2xl tracking-wide ${alexBrush.className}`}>
+                Parmeswar Mohan Pillai
+              </p>
             </div>
           </div>
         </AnimatedSection>

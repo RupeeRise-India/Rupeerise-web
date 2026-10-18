@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
 import AnimatedSection from '@/components/AnimatedSection';
 import PageHero from '@/components/PageHero';
+import ScrollHeading from '@/components/ScrollHeading';
 import ContactForm from '@/components/ContactForm';
 import Image from 'next/image';
 
@@ -25,13 +25,17 @@ export default function ContactPage() {
     <>
       <span className="inline-block animate-enter-word" style={{ animationDelay: '0.05s' }}>Let's</span>{' '}
       <span className="inline-block animate-enter-word" style={{ animationDelay: '0.08s' }}>build</span>{' '}
-      <span className="inline-block animate-enter-word" style={{ animationDelay: '0.11s' }}>what's</span>{' '}
-      <span className="inline-block animate-enter-word" style={{ animationDelay: '0.14s' }}>next.</span>
+      <span className="inline-block animate-enter-word text-brand-gold" style={{ animationDelay: '0.11s' }}>what's</span>{' '}
+      <span className="inline-block animate-enter-word text-brand-gold" style={{ animationDelay: '0.14s' }}>next.</span>
     </>
   );
 
   return (
     <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col items-center">
+      
+      {/* =========================================================================
+          SECTION 1 (DARK): HEADER, HERO, FORM & DIRECT INFO
+          ========================================================================= */}
       <div className="w-full max-w-[1536px] px-4 md:px-10 mx-auto flex flex-col pb-24">
         <Header />
 
@@ -44,7 +48,7 @@ export default function ContactPage() {
         />
 
         {/* 2. FORM & INFO */}
-        <div className="py-24 md:py-32 flex flex-col lg:flex-row gap-6">
+        <div className="py-20 md:py-28 flex flex-col lg:flex-row gap-6">
           <div className="lg:w-2/3">
             <AnimatedSection delay={0.2} className="h-full">
               <Suspense fallback={<div className="h-full min-h-[500px] bg-[#121317] border border-white/5 rounded-3xl animate-pulse"></div>}>
@@ -55,7 +59,7 @@ export default function ContactPage() {
           
           <div className="lg:w-1/3">
             <AnimatedSection delay={0.3} className="h-full">
-              <div className="bg-[#121317] border border-white/5 rounded-3xl p-8 md:p-12 h-full flex flex-col justify-between">
+              <div className="bg-[#121317] border border-white/5 rounded-3xl p-8 md:p-12 h-full flex flex-col justify-between shadow-2xl">
                 <div>
                   <h2 className="text-2xl text-white font-medium mb-12">Prefer to talk directly?</h2>
                   
@@ -90,20 +94,28 @@ export default function ContactPage() {
             </AnimatedSection>
           </div>
         </div>
+      </div>
 
-        {/* 3. OFFICES */}
-        <div className="py-24 border-t border-white/5">
+      {/* =========================================================================
+          SECTION 2 (LIGHT BREAK): OFFICES & PRESENCE
+          ========================================================================= */}
+      <div className="w-full bg-[#fcfaf5] text-brand-dark py-24 md:py-32 px-4 md:px-10 border-t border-black/5">
+        <div className="max-w-[1536px] mx-auto">
           <AnimatedSection delay={0.1}>
-            <p className="text-brand-gold text-[10px] uppercase tracking-widest font-bold mb-6">Our Presence</p>
-            <h2 className="text-3xl md:text-[40px] font-medium leading-tight text-white mb-16">Four cities. Two markets.</h2>
+            <p className="text-brand-gold text-[10px] uppercase tracking-widest font-bold mb-4">Our Presence</p>
+            <ScrollHeading 
+              text="Four cities. Two markets." 
+              align="left"
+              className="text-3xl md:text-[40px] font-medium leading-tight text-brand-dark mb-16" 
+            />
           </AnimatedSection>
 
-          {/* Desktop horizontal scroll/wrap */}
+          {/* Office Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {offices.map((office, i) => (
               <AnimatedSection key={i} delay={0.1 + (i * 0.1)}>
-                <div className="group cursor-pointer flex flex-col gap-4">
-                  <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden relative border border-white/5">
+                <div className="group cursor-pointer flex flex-col gap-4 bg-white p-3.5 rounded-3xl border border-black/10 shadow-sm hover:shadow-md transition-all">
+                  <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border border-black/5">
                     <Image 
                       src={office.img} 
                       fill 
@@ -116,9 +128,9 @@ export default function ContactPage() {
                       </div>
                     )}
                   </div>
-                  <div>
-                    <h3 className="text-white text-[17px] font-medium mb-1">{office.city}</h3>
-                    <p className="text-[#93949A] text-[12px] leading-relaxed max-w-[200px]">{office.address}</p>
+                  <div className="px-2 pb-2">
+                    <h3 className="text-brand-dark text-[17px] font-medium mb-1">{office.city}</h3>
+                    <p className="text-black/60 text-[12px] leading-relaxed max-w-[200px]">{office.address}</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -127,7 +139,10 @@ export default function ContactPage() {
         </div>
       </div>
       
-      <div className="w-full bg-brand-dark text-brand-light py-24 px-4 md:px-10">
+      {/* =========================================================================
+          SECTION 3 (DARK): FOOTER
+          ========================================================================= */}
+      <div className="w-full bg-brand-dark text-brand-light py-24 px-4 md:px-10 border-t border-white/5">
         <div className="max-w-[1536px] mx-auto">
           <Footer />
         </div>

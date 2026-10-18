@@ -2,6 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 
 export default function LogoTicker() {
+  // Hidden for now
+  return null;
+
   const logos = [
     "D2E6rXyY8iW8k2SOf6U3JzYc", // Make sure this corresponds to a valid logo or use SVGs
     "uGz7Yp4T0I9bL8N2R5B8T1q3E",

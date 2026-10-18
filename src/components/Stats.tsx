@@ -55,9 +55,9 @@ const Counter = ({ end, decimals = 0, prefix = "", suffix = "" }: { end: number,
 
 export default function Stats() {
   const stats = [
-    { end: 4.2, decimals: 1, prefix: "₹", suffix: "M", label: "assets under advisory" },
-    { end: 3, decimals: 0, prefix: "", suffix: " yrs", label: "average partner tenure" },
-    { end: 31, decimals: 0, prefix: "", suffix: "", label: "engagements delivered in 2025" },
+    { end: 52, decimals: 0, prefix: "₹", suffix: "M", label: "assets under advisory" },
+    { end: 5, decimals: 0, prefix: "", suffix: " yrs", label: "average partner tenure" },
+    { end: 50, decimals: 0, prefix: "", suffix: "+", label: "engagements delivered" },
     { end: 94, decimals: 0, prefix: "", suffix: "%", label: "of clients return within a year" }
   ];
 

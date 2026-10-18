@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import AnimatedSection from './AnimatedSection';
 
@@ -20,13 +21,17 @@ export default function CTA() {
         </AnimatedSection>
         <AnimatedSection delay={0.2} direction="up">
           <p className="text-[#93949A] text-[15px] mb-12 max-w-md mx-auto leading-relaxed">
-            A 30-minute conversation is usually enough to see where the leverage is. No deck, no pressure.
+            Whether you are scaling a business, structuring capital, seeking portfolio guidance or advancing your trading knowledge — our advisory team is ready.
           </p>
         </AnimatedSection>
         <AnimatedSection delay={0.3} direction="up">
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button variant="primary" icon="calendar">BOOK A CALL</Button>
-            <Button variant="secondary" icon="arrow">SEE OUR WORK</Button>
+            <Link href="/contact">
+              <Button variant="primary" icon="calendar">GET IN TOUCH</Button>
+            </Link>
+            <Link href="/#verticals">
+              <Button variant="secondary" icon="arrow">EXPLORE VERTICALS</Button>
+            </Link>
           </div>
         </AnimatedSection>
       </div>

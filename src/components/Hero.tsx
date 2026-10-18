@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Button from './Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   // Adjust this number (in pixels) to move the entire text section horizontally.
@@ -72,8 +73,12 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap items-center gap-5 animate-enter" style={{ animationDelay: '0.4s' }}>
-          <Button variant="secondary" icon="play">View Demo</Button>
-          <Button variant="primary" icon="arrow">Get Started</Button>
+          <Link href="#verticals">
+            <Button variant="secondary" icon="arrow">Explore Verticals</Button>
+          </Link>
+          <Link href="/contact">
+            <Button variant="primary" icon="arrow">Get Started</Button>
+          </Link>
         </div>
       </div>
     </section>

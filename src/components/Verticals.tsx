@@ -29,15 +29,15 @@ export default function Verticals() {
     },
     {
       title: "Learning",
-      subtitle: "Knowledge Sharing",
-      desc: "Empowering our ecosystem through data and collective continuous growth.",
+      subtitle: "Forex Trading Academy",
+      desc: "Master the markets with price action, Smart Money Concepts (SMC) and ICT methodologies.",
       img: "/images/office-meeting.jpg",
       href: "/verticals/learning"
     }
   ];
 
   return (
-    <section className="w-full flex flex-col items-center">
+    <section id="verticals" className="w-full flex flex-col items-center scroll-mt-24">
       <AnimatedSection className="text-center mb-16 max-w-2xl" delay={0.1}>
         <p className="text-brand-gold text-[10px] uppercase tracking-widest font-bold mb-4">
           Our Verticals

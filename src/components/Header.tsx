@@ -24,7 +24,7 @@ export default function Header() {
     { name: "About Us", href: "/about" },
     { name: "Capitals", href: "/verticals/capital" },
     { name: "Real Estate", href: "/verticals/real-estate" },
-    { name: "Investors", href: "/verticals/investors" },
+    { name: "Portfolio Management", href: "/verticals/investors" },
     { name: "Learning", href: "/verticals/learning" },
   ];
 
@@ -41,7 +41,7 @@ export default function Header() {
           />
         </div>
         
-        <nav className="hidden lg:flex flex-1 justify-center items-center gap-6 text-[10px] uppercase tracking-[0.15em] font-bold text-brand-gold whitespace-nowrap">
+        <nav className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-6 text-[10px] uppercase tracking-[0.15em] font-bold text-brand-gold whitespace-nowrap">
           {navLinks.map((link) => (
             <a key={link.name} href={link.href} className="hover:text-white transition-colors">{link.name}</a>
           ))}

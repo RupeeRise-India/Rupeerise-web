@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const data = await req.json();
-    const { type, email, name, phone, company, interest, message, service, timeline } = data;
+    const { type, email, name, phone, company, interest, message, service, timeline, experience, subType } = data;
 
     let adminSubject = 'New Enquiry Received';
     
@@ -49,19 +49,29 @@ export async function POST(req: Request) {
         ${row('Timeline', timeline || 'N/A')}
         ${row('Message', message ? String(message).replace(/\\n/g, '<br/>') : 'N/A')}
       `;
-    } else if (type === 'Learning') {
-      adminSubject = `New Learning Notification Signup: ${email}`;
+    } else if (type === 'Learning' || type === 'AcademyEnrolment' || type === 'AcademyCertification') {
+      const isCertification = type === 'AcademyCertification' || subType === 'Certification';
+      adminSubject = `Academy ${isCertification ? 'Certification Enquiry' : 'Enrolment'}: ${name || email}`;
       adminDetails = `
+        ${row('Enquiry Type', isCertification ? 'Certification Enquiry' : 'Course Enrolment')}
+        ${row('Name', name || 'N/A')}
         ${row('Email', email || 'N/A')}
+        ${row('Phone', phone || 'N/A')}
+        ${row('Experience', experience || 'N/A')}
+        ${row('Notes / Questions', message ? String(message).replace(/\\n/g, '<br/>') : 'N/A')}
       `;
-      userSubject = 'You are on the list!';
+      userSubject = isCertification
+        ? 'Rupee Rise Forex Trading Academy – Certification Enquiry Received'
+        : 'Rupee Rise Forex Trading Academy – Enrolment Application Received';
       userHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #eaeaea; border-radius: 8px;">
-          <h2 style="color: #c7a468; margin-top: 0;">Rupee Rise Ventures</h2>
-          <p style="color: #333; font-size: 16px; line-height: 1.5;">Thank you for signing up! You're on the list to receive updates about our learning programs.</p>
-          <p style="color: #333; font-size: 16px; line-height: 1.5;">Best regards,<br/>The Rupee Rise Team</p>
+          <h2 style="color: #c7a468; margin-top: 0;">Rupee Rise Forex Trading Academy</h2>
+          <p style="color: #333; font-size: 16px; line-height: 1.5;">Hello ${name || 'Trader'},</p>
+          <p style="color: #333; font-size: 16px; line-height: 1.5;">Thank you for reaching out to the Rupee Rise Forex Trading Academy. We have received your ${isCertification ? 'enquiry regarding our certification requirements' : 'enrolment application'}.</p>
+          <p style="color: #333; font-size: 16px; line-height: 1.5;">Our academic coordination team will review your submission and contact you within 24 hours with details on the upcoming batch, schedule, and onboarding.</p>
+          <p style="color: #333; font-size: 16px; line-height: 1.5;">Best regards,<br/><strong>Rupee Rise Forex Trading Academy</strong><br/>Rupee Rise Ventures</p>
           <hr style="border: none; border-top: 1px solid #eaeaea; margin: 30px 0;" />
-          <p style="font-size: 12px; color: #999; margin-bottom: 0;">This is an automated message, please do not reply directly to this email.</p>
+          <p style="font-size: 12px; color: #999; margin-bottom: 0;">This is an automated notification. For urgent assistance, please contact us at info@rupeerise.com or +91 77366 80099.</p>
         </div>
       `;
     }

@@ -80,7 +80,7 @@ export default function Footer() {
             <h5 className="text-[10px] uppercase tracking-widest font-bold text-[#c7a468] mb-1">Ventures</h5>
             <a href="/verticals/capital" className="text-[13px] text-white hover:text-brand-gold transition-colors">Capital</a>
             <a href="/verticals/real-estate" className="text-[13px] text-white hover:text-brand-gold transition-colors">Real Estate</a>
-            <a href="/verticals/investors" className="text-[13px] text-white hover:text-brand-gold transition-colors">Investors</a>
+            <a href="/verticals/investors" className="text-[13px] text-white hover:text-brand-gold transition-colors">Portfolio Management</a>
             <a href="/verticals/learning" className="text-[13px] text-white hover:text-brand-gold transition-colors">Learning</a>
           </div>
           <div className="flex flex-col gap-4">
