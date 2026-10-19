@@ -18,12 +18,15 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  // Team member profiles hidden for now
+  /*
   const leadership = [
     { name: "Pooja Raj", role: "Founder & CEO", img: "/images/woman-high-key-portrait.jpg" },
     { name: "Executive Leadership", role: "Director of Capital", img: "/images/woman-smiling-long-hair.jpg" },
     { name: "Strategic Advisory", role: "Head of Strategy", img: "/images/man-smiling-sweater.jpg" },
     { name: "Operations & Alliances", role: "Operations Lead", img: "/images/woman-smiling-over-shoulder.jpg" },
   ];
+  */
 
   const principles = [
     { title: "Knowledge before action", desc: "Understand first. Act second." },
@@ -210,8 +213,9 @@ export default function AboutPage() {
       </div>
 
       {/* =========================================================================
-          SECTION 5 (DARK): LEADERSHIP
+          SECTION 5 (DARK): LEADERSHIP / OUR TEAM (Temporarily hidden)
           ========================================================================= */}
+      {/* 
       <div className="w-full bg-brand-dark text-brand-light py-24 md:py-32 px-4 md:px-10 border-b border-white/5">
         <div className="max-w-[1536px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -244,6 +248,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      */}
 
       {/* =========================================================================
           SECTION 6 (LIGHT BREAK): WHO WE WORK WITH & PRESENCE

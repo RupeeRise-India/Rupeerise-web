@@ -44,6 +44,15 @@ export default function FAQ() {
           <p className="text-white/50 text-sm">
             Everything you need to know about our methodology, structure, and strategy.
           </p>
+          <div className="mt-8">
+            <a 
+              href="/faq" 
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-brand-gold font-bold hover:text-white transition-colors group"
+            >
+              <span>Explore all questions</span>
+              <span className="transform transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          </div>
         </AnimatedSection>
       </div>
 
