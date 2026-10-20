@@ -31,7 +31,7 @@ export default function ContactPage() {
   );
 
   return (
-    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col items-center">
+    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col w-full overflow-x-hidden">
       
       {/* =========================================================================
           SECTION 1 (DARK): HEADER, HERO, FORM & DIRECT INFO

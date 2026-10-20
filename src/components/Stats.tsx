@@ -62,7 +62,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="w-full bg-[#131416] rounded-[32px] p-8 md:p-12 border border-white/5">
+    <section className="w-full bg-[#131416] rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 md:p-12 border border-white/5">
       <motion.h3 
         initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
         variants={customVariants} transition={{ ...transitionProps, delay: 0 }}
@@ -77,7 +77,7 @@ export default function Stats() {
         className="w-full h-px bg-white/5 mb-8"
       ></motion.div>
       
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
         {stats.map((stat, i) => (
           <motion.div 
             key={i} 
@@ -85,7 +85,7 @@ export default function Stats() {
             variants={customVariants} transition={{ ...transitionProps, delay: 0.16 + (i * 0.08) }}
             className="flex flex-col"
           >
-            <div className="text-3xl md:text-4xl text-white font-medium mb-3">
+            <div className="text-2xl sm:text-3xl md:text-4xl text-white font-medium mb-2 sm:mb-3">
               <Counter 
                 end={stat.end} 
                 decimals={stat.decimals} 

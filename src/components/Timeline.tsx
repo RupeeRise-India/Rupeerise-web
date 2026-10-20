@@ -12,12 +12,12 @@ export default function Timeline() {
   ];
 
   return (
-    <section className="w-full flex flex-col pt-12 items-center px-4 md:px-0">
+    <section className="w-full flex flex-col pt-8 sm:pt-12 items-center px-0">
       <div className="w-full max-w-[1310px] flex flex-col">
         {/* Top Header */}
         <div className="flex justify-between items-end w-full mb-6">
           <AnimatedSection delay={0.1} className="w-full max-w-[340px]">
-            <h2 className="text-4xl md:text-[44px] font-medium leading-[1.1] tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-[44px] font-medium leading-[1.1] tracking-tight text-white">
               From opportunity<br />to growth.
             </h2>
           </AnimatedSection>

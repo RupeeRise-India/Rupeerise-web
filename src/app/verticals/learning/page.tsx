@@ -373,7 +373,7 @@ export default function LearningPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col items-center selection:bg-brand-gold/30 selection:text-white">
+    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col w-full overflow-x-hidden selection:bg-brand-gold/30 selection:text-white">
       
       {/* =========================================================================
           SECTION 1 (DARK): HEADER, HERO & KEY HIGHLIGHTS

@@ -32,7 +32,7 @@ export default function FeatureGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         {/* Left Large Card */}
         <AnimatedSection delay={0.1}>
-          <div className="relative rounded-3xl overflow-hidden min-h-[400px] p-10 flex flex-col justify-end group bg-[#0a0b0d] border border-white/5 h-full">
+          <div className="relative rounded-3xl overflow-hidden min-h-[340px] sm:min-h-[400px] p-6 sm:p-10 flex flex-col justify-end group bg-[#0a0b0d] border border-white/5 h-full">
             <div className="absolute inset-0 z-0">
               <Image 
                 src="/images/Wave.jpg"
@@ -46,13 +46,13 @@ export default function FeatureGrid() {
               <p className="text-white/80 text-xs mb-2 font-medium">
                 Commitment to measurable
               </p>
-              <h3 className="text-6xl font-medium text-brand-gold">100%</h3>
+              <h3 className="text-5xl sm:text-6xl font-medium text-brand-gold">100%</h3>
             </div>
           </div>
         </AnimatedSection>
 
         {/* Right Content */}
-        <div className="p-8 md:p-10 rounded-3xl bg-transparent flex flex-col justify-center h-full">
+        <div className="p-4 sm:p-8 md:p-10 rounded-3xl bg-transparent flex flex-col justify-center h-full">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
             variants={customVariants} transition={{ ...transitionProps, delay: 0 }}
@@ -67,7 +67,7 @@ export default function FeatureGrid() {
           <motion.h2 
             initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}
             variants={customVariants} transition={{ ...transitionProps, delay: 0.08 }}
-            className="text-4xl md:text-5xl font-medium mb-6 leading-[1.15] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6 leading-[1.15] tracking-tight"
           >
             More than a venture.<br />
             An ecosystem for growth.
@@ -97,7 +97,7 @@ export default function FeatureGrid() {
         
         {/* Card 1 */}
         <AnimatedSection delay={0.1}>
-          <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
+          <div className="bg-[#0a0b0d] p-6 sm:p-8 rounded-[24px] sm:rounded-3xl border border-white/5 flex flex-col justify-between min-h-[240px] sm:min-h-[260px] h-full">
             <div>
               <p className="text-brand-gold text-[9px] uppercase tracking-widest font-bold mb-6">VERTICALS</p>
               <h4 className="text-4xl text-brand-gold font-medium">04</h4>
@@ -110,7 +110,7 @@ export default function FeatureGrid() {
 
         {/* Card 2 */}
         <AnimatedSection delay={0.2}>
-          <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
+          <div className="bg-[#0a0b0d] p-6 sm:p-8 rounded-[24px] sm:rounded-3xl border border-white/5 flex flex-col justify-between min-h-[240px] sm:min-h-[260px] h-full">
             <div>
               <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mb-6">MARKETS</p>
               <h4 className="text-4xl text-brand-gold font-medium">02</h4>
@@ -123,7 +123,7 @@ export default function FeatureGrid() {
 
         {/* Card 3 (Executive Quote) */}
         <AnimatedSection delay={0.3}>
-          <div className="bg-[#0a0b0d] p-7 md:p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full relative overflow-hidden group">
+          <div className="bg-[#0a0b0d] p-6 sm:p-8 rounded-[24px] sm:rounded-3xl border border-white/5 flex flex-col justify-between min-h-[240px] sm:min-h-[260px] h-full relative overflow-hidden group">
             {/* Background subtle watermark quotation mark */}
             <div className="absolute top-2 right-4 text-white/[0.04] select-none pointer-events-none font-serif text-7xl leading-none">
               “
@@ -148,7 +148,7 @@ export default function FeatureGrid() {
 
         {/* Card 4 */}
         <AnimatedSection delay={0.4}>
-          <div className="bg-[#0a0b0d] p-8 rounded-3xl border border-white/5 flex flex-col justify-between min-h-[260px] h-full">
+          <div className="bg-[#0a0b0d] p-6 sm:p-8 rounded-[24px] sm:rounded-3xl border border-white/5 flex flex-col justify-between min-h-[240px] sm:min-h-[260px] h-full">
             <div>
               <p className="text-brand-gold text-[9px] uppercase tracking-widest font-bold mb-6">PRESENCE</p>
               <h4 className="text-4xl text-brand-gold font-medium">05</h4>

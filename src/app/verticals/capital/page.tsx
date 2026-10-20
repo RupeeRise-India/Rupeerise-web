@@ -103,7 +103,7 @@ export default function CapitalPage() {
   const heroDescription = "Rupee Rise Capital brings together financial insight, strategic asset management and capital deployment to help businesses, asset owners and investors navigate growth and build enduring value.";
 
   return (
-    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col items-center">
+    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col w-full overflow-x-hidden">
       
       {/* =========================================================================
           SECTION 1 (DARK): HEADER & HERO

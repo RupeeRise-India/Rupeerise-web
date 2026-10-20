@@ -83,10 +83,10 @@ export default function CaseStudy() {
   ];
 
   return (
-    <section className="w-full flex flex-col gap-12 py-10 relative">
+    <section className="w-full flex flex-col gap-12 py-10 relative overflow-hidden">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[120px] pointer-events-none rounded-full"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[350px] bg-brand-gold/5 blur-[120px] pointer-events-none rounded-full"></div>
 
       {/* Header Container */}
       <div className="flex flex-col gap-5 max-w-4xl">

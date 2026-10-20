@@ -22,7 +22,7 @@ export default function FAQPage() {
   );
 
   return (
-    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col items-center">
+    <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col w-full overflow-x-hidden">
       {/* SECTION 1: HEADER & HERO */}
       <div className="w-full max-w-[1536px] px-4 md:px-10 mx-auto flex flex-col pb-6">
         <Header />

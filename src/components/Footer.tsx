@@ -26,7 +26,7 @@ const letterVariants: any = {
 export default function Footer() {
   return (
     <footer className="w-full pt-16 md:pt-24 border-t border-white/5 mt-12 flex flex-col relative overflow-hidden bg-brand-dark">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-12 w-full max-w-[1310px] mx-auto px-8 mb-16 relative z-10">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-12 w-full max-w-[1310px] mx-auto px-4 sm:px-8 mb-16 relative z-10">
         
         {/* Column 1 - Logo and Info */}
         <div className="flex flex-col gap-6 max-w-sm">
@@ -93,14 +93,14 @@ export default function Footer() {
       </div>
       
       {/* Footer Bottom */}
-      <div className="w-full max-w-[1310px] mx-auto px-8 relative z-10 border-t border-white/5 pt-8 mb-4">
+      <div className="w-full max-w-[1310px] mx-auto px-4 sm:px-8 relative z-10 border-t border-white/5 pt-8 mb-4">
         <p className="text-white/40 text-[11px]">
           © 2026 RupeeRise. All rights reserved.
         </p>
       </div>
 
-      <div className="w-full flex justify-center relative z-0 mt-8">
-        <h1 className={`text-[15vw] font-bold tracking-normal leading-none pointer-events-none select-none flex ${instrumentSans.className}`}>
+      <div className="w-full max-w-full flex justify-center relative z-0 mt-8 overflow-hidden">
+        <h1 className={`text-[15vw] font-bold tracking-normal leading-none pointer-events-none select-none flex whitespace-nowrap ${instrumentSans.className}`}>
           {"RupeeRise".split("").map((letter, i) => (
             <motion.span
               key={i}
