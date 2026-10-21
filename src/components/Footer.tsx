@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h5 className="text-[10px] uppercase tracking-widest font-bold text-[#c7a468] mb-1">Contact</h5>
             <span className="text-[13px] text-white">+917736680099</span>
-            <span className="text-[13px] text-white">info@rupeerise.com</span>
+            <span className="text-[13px] text-white">info@rupeeriseventures.com</span>
             <span className="text-[13px] text-white mt-1">Kochi • Trivandrum • Hyderabad • Bangalore</span>
           </div>
         </div>

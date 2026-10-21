@@ -68,7 +68,7 @@ function AcademyForm({
           {activeTab === 'certification' ? 'Certification Enquiry Submitted' : 'Your Enrolment Request Is In'}
         </h3>
         <p className="text-[#93949A] text-sm md:text-base max-w-md mx-auto leading-relaxed mb-8">
-          Thank you for reaching out to the Rupee Rise Forex Trading Academy. An academic advisor will contact you within 24 hours with details on the upcoming batch and onboarding.
+          Thank you for reaching out to the Rupee Rise Forex Trading Academy. We have dispatched an automated confirmation to your email. An academic advisor will contact you within 24 hours with details on the upcoming batch and onboarding.
         </p>
         <button
           type="button"

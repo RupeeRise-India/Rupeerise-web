@@ -55,8 +55,20 @@ function InvestorForm() {
         <div className="w-16 h-16 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-6 border border-brand-gold/20">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"></path></svg>
         </div>
-        <h3 className="text-2xl text-white font-medium mb-4">Thank you for your enquiry</h3>
-        <p className="text-[#93949A] text-sm">A specialist from our team will contact you shortly to discuss your requirements.</p>
+        <h3 className="text-2xl text-white font-medium mb-4">Consultation Request Received</h3>
+        <p className="text-[#93949A] text-sm leading-relaxed max-w-sm">
+          We've received your consultation request and sent an automated confirmation to your email. An advisory specialist from our team will contact you shortly to discuss your portfolio requirements.
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setSubmitted(false);
+            setFormData({ name: '', email: '', phone: '+91 ', service: '', timeline: '', message: '' });
+          }}
+          className="mt-8 text-brand-gold text-xs font-bold uppercase tracking-widest hover:text-white transition-colors"
+        >
+          Submit Another Request
+        </button>
       </div>
     );
   }

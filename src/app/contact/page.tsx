@@ -66,7 +66,7 @@ export default function ContactPage() {
                   <div className="flex flex-col gap-8">
                     <div>
                       <p className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-2">Email</p>
-                      <a href="mailto:info@rupeerise.com" className="text-white hover:text-brand-gold transition-colors text-[15px]">info@rupeerise.com</a>
+                      <a href="mailto:info@rupeeriseventures.com" className="text-white hover:text-brand-gold transition-colors text-[15px]">info@rupeeriseventures.com</a>
                     </div>
                     <div>
                       <p className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-2">Phone</p>

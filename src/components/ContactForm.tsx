@@ -73,7 +73,7 @@ export default function ContactForm() {
           </div>
           <h3 className="text-2xl text-white font-medium mb-4">Enquiry Received</h3>
           <p className="text-[#93949A] text-[15px] leading-relaxed max-w-sm">
-            Thank you — we've received your enquiry and the right person from our team will be in touch shortly.
+            Thank you — we've received your enquiry and an automated confirmation has been sent to your email. A member of our advisory team will be in touch shortly.
           </p>
           <button 
             onClick={() => setIsSuccess(false)}

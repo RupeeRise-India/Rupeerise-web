@@ -540,7 +540,7 @@ export default function FAQPageContent() {
               {/* Direct Quick Info Pills */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md mb-10 text-left">
                 <a
-                  href="mailto:info@rupeerise.com"
+                  href="mailto:info@rupeeriseventures.com"
                   className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-gold/40 transition-colors flex items-center gap-3.5 group"
                 >
                   <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
@@ -551,7 +551,7 @@ export default function FAQPageContent() {
                   </div>
                   <div>
                     <p className="text-[10px] text-white/50 uppercase tracking-wider font-semibold">Email Us</p>
-                    <p className="text-white text-xs font-medium group-hover:text-brand-gold transition-colors">info@rupeerise.com</p>
+                    <p className="text-white text-xs font-medium group-hover:text-brand-gold transition-colors">info@rupeeriseventures.com</p>
                   </div>
                 </a>
 

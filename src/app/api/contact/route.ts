@@ -1,116 +1,174 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import {
+  FormSubmission,
+  generateUserAcknowledgementEmail,
+  generateAdminNotificationEmail,
+} from '@/lib/emailTemplates';
 
 export async function POST(req: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    console.error('RESEND_API_KEY is not defined in environment variables.');
+    return NextResponse.json(
+      { success: false, error: 'Email service configuration missing' },
+      { status: 500 }
+    );
+  }
+
+  const resend = new Resend(apiKey);
+
   try {
     const data = await req.json();
-    const { type, email, name, phone, company, interest, message, service, timeline, experience, subType } = data;
+    const {
+      type = 'Contact',
+      subType,
+      name = '',
+      email = '',
+      phone = '',
+      company = '',
+      interest = '',
+      service = '',
+      timeline = '',
+      experience = '',
+      message = '',
+    } = data;
 
-    let adminSubject = 'New Enquiry Received';
-    
-    const row = (label: string, value: string) => `
-      <tr>
-        <td style="padding: 12px 10px; border-bottom: 1px solid #eaeaea; color: #555; width: 120px; vertical-align: top;"><strong>${label}:</strong></td>
-        <td style="padding: 12px 10px; border-bottom: 1px solid #eaeaea; color: #111; vertical-align: top;">${value}</td>
-      </tr>
-    `;
-    
-    let adminDetails = '';
-    
-    let userSubject = 'We have received your enquiry';
-    let userHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #eaeaea; border-radius: 8px;">
-        <h2 style="color: #c7a468; margin-top: 0;">Rupee Rise Ventures</h2>
-        <p style="color: #333; font-size: 16px; line-height: 1.5;">Thank you for reaching out to us. We have received your enquiry and a member of our team will get back to you shortly.</p>
-        <p style="color: #333; font-size: 16px; line-height: 1.5;">Best regards,<br/>The Rupee Rise Team</p>
-        <hr style="border: none; border-top: 1px solid #eaeaea; margin: 30px 0;" />
-        <p style="font-size: 12px; color: #999; margin-bottom: 0;">This is an automated message, please do not reply directly to this email.</p>
-      </div>
-    `;
-
-    if (type === 'Contact') {
-      adminSubject = `New Contact Form Submission from ${name}`;
-      adminDetails = `
-        ${row('Name', name || 'N/A')}
-        ${row('Email', email || 'N/A')}
-        ${row('Phone', phone || 'N/A')}
-        ${row('Company', company || 'N/A')}
-        ${row('Interest', interest || 'N/A')}
-        ${row('Message', message ? String(message).replace(/\\n/g, '<br/>') : 'N/A')}
-      `;
-    } else if (type === 'Investor') {
-      adminSubject = `New Investor Consultation Request from ${name}`;
-      adminDetails = `
-        ${row('Name', name || 'N/A')}
-        ${row('Email', email || 'N/A')}
-        ${row('Phone', phone || 'N/A')}
-        ${row('Service', service || 'N/A')}
-        ${row('Timeline', timeline || 'N/A')}
-        ${row('Message', message ? String(message).replace(/\\n/g, '<br/>') : 'N/A')}
-      `;
-    } else if (type === 'Learning' || type === 'AcademyEnrolment' || type === 'AcademyCertification') {
-      const isCertification = type === 'AcademyCertification' || subType === 'Certification';
-      adminSubject = `Academy ${isCertification ? 'Certification Enquiry' : 'Enrolment'}: ${name || email}`;
-      adminDetails = `
-        ${row('Enquiry Type', isCertification ? 'Certification Enquiry' : 'Course Enrolment')}
-        ${row('Name', name || 'N/A')}
-        ${row('Email', email || 'N/A')}
-        ${row('Phone', phone || 'N/A')}
-        ${row('Experience', experience || 'N/A')}
-        ${row('Notes / Questions', message ? String(message).replace(/\\n/g, '<br/>') : 'N/A')}
-      `;
-      userSubject = isCertification
-        ? 'Rupee Rise Forex Trading Academy – Certification Enquiry Received'
-        : 'Rupee Rise Forex Trading Academy – Enrolment Application Received';
-      userHtml = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #eaeaea; border-radius: 8px;">
-          <h2 style="color: #c7a468; margin-top: 0;">Rupee Rise Forex Trading Academy</h2>
-          <p style="color: #333; font-size: 16px; line-height: 1.5;">Hello ${name || 'Trader'},</p>
-          <p style="color: #333; font-size: 16px; line-height: 1.5;">Thank you for reaching out to the Rupee Rise Forex Trading Academy. We have received your ${isCertification ? 'enquiry regarding our certification requirements' : 'enrolment application'}.</p>
-          <p style="color: #333; font-size: 16px; line-height: 1.5;">Our academic coordination team will review your submission and contact you within 24 hours with details on the upcoming batch, schedule, and onboarding.</p>
-          <p style="color: #333; font-size: 16px; line-height: 1.5;">Best regards,<br/><strong>Rupee Rise Forex Trading Academy</strong><br/>Rupee Rise Ventures</p>
-          <hr style="border: none; border-top: 1px solid #eaeaea; margin: 30px 0;" />
-          <p style="font-size: 12px; color: #999; margin-bottom: 0;">This is an automated notification. For urgent assistance, please contact us at info@rupeerise.com or +91 77366 80099.</p>
-        </div>
-      `;
+    // Validate minimum required fields
+    if (!email && !phone && !name) {
+      return NextResponse.json(
+        { success: false, error: 'Please provide at least a contact email or phone number.' },
+        { status: 400 }
+      );
     }
 
-    let adminHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #eaeaea; border-radius: 8px; background-color: #fafafa;">
-        <h2 style="color: #c7a468; margin-top: 0; padding-bottom: 15px; border-bottom: 2px solid #eaeaea;">New Enquiry: ${type}</h2>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 15px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          ${adminDetails}
-        </table>
-        <p style="font-size: 12px; color: #999; margin-top: 30px; text-align: center;">This notification was sent securely from Rupee Rise Ventures.</p>
-      </div>
-    `;
+    const submission: FormSubmission = {
+      type,
+      subType,
+      name,
+      email,
+      phone,
+      company,
+      interest,
+      service,
+      timeline,
+      experience,
+      message,
+    };
 
+    // Sender address using verified domain rupeeriseventures.com
+    const fromAddress =
+      process.env.RESEND_FROM_EMAIL || 'Rupee Rise Ventures <info@rupeeriseventures.com>';
+
+    // Parse admin notification recipients
+    const envAdminEmails = process.env.ADMIN_NOTIFICATION_EMAIL
+      ? process.env.ADMIN_NOTIFICATION_EMAIL.split(',').map((e) => e.trim()).filter(Boolean)
+      : [];
+
+    const defaultAdminRecipients = [
+      'support@rupeeriseventures.com',
+      'info@rupeeriseventures.com',
+      'poojaraj@rupeeriseventures.com',
+      'yuuvraj45@rupeeriseventures.com',
+      'parameswar@rupeeriseventures.com',
+      'info@salhurry.in',
+    ];
+
+    const adminRecipients = envAdminEmails.length > 0 ? envAdminEmails : defaultAdminRecipients;
+
+    // 1. Generate Email Contents from Brand Templates
+    const userEmailData = generateUserAcknowledgementEmail(submission);
+    const adminEmailData = generateAdminNotificationEmail(submission);
+
+    // 2. Dispatch Admin Notification Email
+    let adminEmailSent = false;
     try {
-      await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: ['karthikdude0022@gmail.com', 'rupeerise15@gmail.com'],
-        subject: adminSubject,
-        html: adminHtml,
+      const adminResult = await resend.emails.send({
+        from: fromAddress,
+        to: adminRecipients,
+        replyTo: email ? `${name || 'Website Lead'} <${email}>` : undefined,
+        subject: adminEmailData.subject,
+        html: adminEmailData.html,
       });
-    } catch (e) {
-      console.error("Admin email failed to send (this is expected in sandbox mode if these emails are not verified):", e);
+
+      if (adminResult.error) {
+        console.warn('Primary admin send returned warning/error:', adminResult.error);
+        // If Resend sandbox restricted recipients to account owner (user1.salhurry@gmail.com), retry with just that email
+        if (
+          adminResult.error.message &&
+          adminResult.error.message.includes('only send testing emails to your own email address')
+        ) {
+          console.log('Retrying admin alert to verified sandbox account (user1.salhurry@gmail.com)...');
+          await resend.emails.send({
+            from: 'Rupee Rise Ventures <onboarding@resend.dev>',
+            to: ['user1.salhurry@gmail.com'],
+            replyTo: email ? `${name || 'Website Lead'} <${email}>` : undefined,
+            subject: adminEmailData.subject,
+            html: adminEmailData.html,
+          });
+          adminEmailSent = true;
+        }
+      } else {
+        adminEmailSent = true;
+      }
+    } catch (adminErr: any) {
+      console.error('Error dispatching admin notification email:', adminErr?.message || adminErr);
+      // Attempt fallback to verified account email if available
+      try {
+        await resend.emails.send({
+          from: 'Rupee Rise Ventures <onboarding@resend.dev>',
+          to: ['user1.salhurry@gmail.com'],
+          replyTo: email ? `${name || 'Website Lead'} <${email}>` : undefined,
+          subject: adminEmailData.subject,
+          html: adminEmailData.html,
+        });
+        adminEmailSent = true;
+      } catch (fallbackErr) {
+        console.error('Fallback admin email also failed:', fallbackErr);
+      }
     }
 
-    try {
-      await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: [email],
-        subject: userSubject,
-        html: userHtml,
-      });
-    } catch (e) {
-      console.error("User email failed to send (this is expected in sandbox mode if the user's email is not verified):", e);
+    // 3. Dispatch Automated User Acknowledgement Email (if user provided an email)
+    let userEmailSent = false;
+    if (email && email.includes('@')) {
+      try {
+        const userResult = await resend.emails.send({
+          from: fromAddress,
+          to: [email],
+          replyTo: 'Rupee Rise Ventures <support@rupeeriseventures.com>',
+          subject: userEmailData.subject,
+          html: userEmailData.html,
+        });
+
+        if (userResult.error) {
+          console.warn(
+            `[User Acknowledgement Note]: Could not deliver acknowledgement to ${email}: ${userResult.error.message}.`
+          );
+        } else {
+          userEmailSent = true;
+          console.log(`Automated acknowledgement email successfully sent to ${email} (ID: ${userResult.data?.id})`);
+        }
+      } catch (userErr: any) {
+        console.warn(
+          `[User Acknowledgement Note]: Delivery to ${email} failed: ${userErr?.message}. Verify custom domain in Resend to enable external deliveries.`
+        );
+      }
     }
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Error in contact route:', error);
-    return NextResponse.json({ success: false, error: 'Failed to process request' }, { status: 500 });
+    return NextResponse.json({
+      success: true,
+      message: 'Enquiry received successfully',
+      meta: {
+        adminAlertDispatched: adminEmailSent,
+        acknowledgementDispatched: userEmailSent,
+      },
+    });
+  } catch (error: any) {
+    console.error('Error in /api/contact route:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to process request' },
+      { status: 500 }
+    );
   }
 }
