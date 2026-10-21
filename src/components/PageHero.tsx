@@ -8,16 +8,32 @@ interface PageHeroProps {
   description?: React.ReactNode;
   footerText?: string;
   size?: 'large' | 'small';
+  showWaves?: boolean;
 }
 
-export default function PageHero({ label, title, description, footerText, size = 'large' }: PageHeroProps) {
+export default function PageHero({
+  label,
+  title,
+  description,
+  footerText,
+  size = 'large',
+  showWaves = true,
+}: PageHeroProps) {
   const isLarge = size === 'large';
   
   return (
     <div className={`w-full bg-[#121317] rounded-3xl overflow-hidden relative p-8 md:p-12 ${isLarge ? 'lg:p-24 min-h-[60vh] md:min-h-[70vh]' : 'lg:p-16 min-h-[40vh]'} mt-4 border border-white/5 flex flex-col`}>
-      <div className="absolute inset-0 z-0 animate-image-appear">
-        <PatternWaves preset="ocean" direction={70} color="#d6b77a" backgroundColor="#000000" opacity={isLarge ? 0.6 : 0.4} />
-      </div>
+      {showWaves ? (
+        <div className="absolute inset-0 z-0 animate-image-appear">
+          <PatternWaves preset="ocean" direction={70} color="#d6b77a" backgroundColor="#000000" opacity={isLarge ? 0.6 : 0.4} />
+        </div>
+      ) : (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Refined subtle ambient luxury glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-brand-gold/[0.07] via-transparent to-transparent pointer-events-none rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-brand-gold/[0.03] pointer-events-none rounded-full blur-2xl"></div>
+        </div>
+      )}
       
       <div className={`relative z-10 flex flex-col h-full justify-between gap-12 pointer-events-none ${isLarge ? 'gap-24' : ''}`}>
         <div className="pointer-events-auto">

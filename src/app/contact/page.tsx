@@ -45,6 +45,7 @@ export default function ContactPage() {
           title={contactHeroTitle}
           description="Whether it's capital, real estate, investments, business growth or learning — tell us what you're working on and the right person from our team will get back to you."
           size="small"
+          showWaves={false}
         />
 
         {/* 2. FORM & INFO */}

@@ -388,6 +388,7 @@ export default function LearningPage() {
           description={heroDescription}
           footerText="STRUCTURED MODULES • PRACTICAL CHART ANALYSIS • SMC & ICT METHODOLOGIES • QUALIFIED TRAINERS"
           size="large"
+          showWaves={false}
         />
 
         {/* HERO QUICK ACTION BAR */}
