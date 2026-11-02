@@ -1,19 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rupee Rise Forex Trading Academy | Master the Markets. Build Your Strategy.',
-  description: 'A structured forex trading education programme designed to take learners from the fundamentals of price action to advanced market analysis, Smart Money Concepts (SMC) and Inner Circle Trader (ICT) methodologies.',
-  keywords: [
-    'Rupee Rise Forex Trading Academy',
-    'Forex Trading Course',
-    'Price Action Trading',
-    'Smart Money Concepts',
-    'SMC Forex',
-    'Inner Circle Trader',
-    'ICT Trading Methodology',
-    'Forex Certification',
-    'Forex Education India'
-  ],
+  title: "Forex Trading Academy & Learning",
+  description:
+    "Rupee Rise Trading Academy (Rupeeriseventures) offers structured financial markets education, professional forex mentorship, risk management, and trader certification.",
+  alternates: {
+    canonical: "/verticals/learning",
+  },
+  openGraph: {
+    title: "Forex Trading Academy & Learning | Rupee Rise Ventures",
+    description:
+      "Master financial markets with disciplined mentorship, institutional strategies, and professional trader certification.",
+    url: "https://rupeeriseventures.com/verticals/learning",
+  },
 };
 
 export default function LearningLayout({
@@ -21,5 +20,5 @@ export default function LearningLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }

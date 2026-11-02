@@ -8,8 +8,11 @@ import ContactForm from '@/components/ContactForm';
 import Image from 'next/image';
 
 export const metadata = {
-  title: "Contact Us | Rupee Rise Ventures",
-  description: "Whether it's capital, real estate, investments, business growth or learning — tell us what you're working on and the right person from our team will get back to you.",
+  title: "Contact Us",
+  description: "Get in touch with Rupee Rise Ventures (Rupeeriseventures) across Kochi, Trivandrum, Hyderabad, Bangalore, and Dubai for capital, real estate, portfolio management, and learning.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const offices = [
@@ -75,7 +78,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-2">Website</p>
-                      <a href="https://www.rupeeriseventures.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-gold transition-colors text-[15px]">www.rupeeriseventures.com</a>
+                      <a href="https://rupeeriseventures.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-gold transition-colors text-[15px]">rupeeriseventures.com</a>
                     </div>
                   </div>
                 </div>

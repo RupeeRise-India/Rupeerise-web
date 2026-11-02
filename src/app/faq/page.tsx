@@ -5,8 +5,11 @@ import PageHero from '@/components/PageHero';
 import FAQPageContent from '@/components/FAQPageContent';
 
 export const metadata = {
-  title: "Frequently Asked Questions | Rupee Rise Ventures",
-  description: "Find clear answers to common questions about Rupee Rise Ventures, our capital deployment strategy, cross-border real estate investments in India and Dubai, portfolio management, and market education.",
+  title: "Frequently Asked Questions",
+  description: "Find clear answers to common questions about Rupee Rise Ventures (Rupeeriseventures), capital strategy, real estate in India & Dubai, portfolio management, and market learning.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FAQPage() {

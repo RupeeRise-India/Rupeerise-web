@@ -13,8 +13,11 @@ const alexBrush = Alex_Brush({
 });
 
 export const metadata = {
-  title: "About Us | Rupee Rise Ventures",
-  description: "Rupee Rise Ventures is a multi-business venture company focused on identifying opportunities, building businesses and enabling sustainable growth.",
+  title: "About Us",
+  description: "Learn about Rupee Rise Ventures (Rupeeriseventures) — a multi-business venture ecosystem built around finance, strategy, and sustainable growth across India and Dubai.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

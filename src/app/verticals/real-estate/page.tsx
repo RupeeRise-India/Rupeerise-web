@@ -6,10 +6,7 @@ import Button from '@/components/Button';
 import ScrollHeading from '@/components/ScrollHeading';
 import Image from 'next/image';
 
-export const metadata = {
-  title: "Real Estate | Rupee Rise Ventures",
-  description: "Exploring strategic real estate opportunities across India and Dubai.",
-};
+
 
 const focusAreas = [
   { title: "Residential", img: "/images/office-meeting.jpg" },

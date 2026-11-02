@@ -38,7 +38,7 @@ export default function Footer() {
             className="object-contain"
           />
           <p className="text-white/60 text-[13px] leading-relaxed max-w-[280px]">
-            A multi-business venture ecosystem built around finance, strategy and growth.
+            Rupee Rise Ventures (Rupeeriseventures) is a multi-business venture ecosystem built around finance, strategy and growth.
           </p>
           <div className="flex items-center gap-3 text-white/70 mt-2">
             <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
@@ -95,7 +95,7 @@ export default function Footer() {
       {/* Footer Bottom */}
       <div className="w-full max-w-[1310px] mx-auto px-4 sm:px-8 relative z-10 border-t border-white/5 pt-8 mb-4">
         <p className="text-white/40 text-[11px]">
-          © 2026 RupeeRise. All rights reserved.
+          © 2026 Rupee Rise Ventures. All rights reserved.
         </p>
       </div>
 

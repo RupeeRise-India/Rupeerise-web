@@ -1,19 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rupee Rise Capital | Strategic Capital & Asset Management',
-  description: 'Rupee Rise Capital brings together financial insight, strategic asset management and capital deployment to help businesses, asset owners and investors navigate growth and build enduring value.',
-  keywords: [
-    'Rupee Rise Capital',
-    'Asset Management India',
-    'Capital Structuring',
-    'Asset Stewardship',
-    'Portfolio Asset Allocation',
-    'Private Capital Advisory',
-    'Business Expansion Capital',
-    'Risk Hedging',
-    'Venture Capital Ecosystem Dubai India'
-  ],
+  title: "Capital & Asset Management",
+  description:
+    "Rupee Rise Capital brings together financial insight, strategic asset management and capital deployment to help businesses, asset owners and investors build enduring value.",
+  alternates: {
+    canonical: "/verticals/capital",
+  },
+  openGraph: {
+    title: "Capital & Asset Management | Rupee Rise Ventures",
+    description:
+      "Strategic capital structuring, active asset management and growth deployment across dynamic markets.",
+    url: "https://rupeeriseventures.com/verticals/capital",
+  },
 };
 
 export default function CapitalLayout({
@@ -21,5 +20,5 @@ export default function CapitalLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }
