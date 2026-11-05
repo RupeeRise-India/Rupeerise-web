@@ -94,9 +94,14 @@ export default function Footer() {
       
       {/* Footer Bottom */}
       <div className="w-full max-w-[1310px] mx-auto px-4 sm:px-8 relative z-10 border-t border-white/5 pt-8 mb-4">
-        <p className="text-white/40 text-[11px]">
-          © 2026 Rupee Rise Ventures. All rights reserved.
-        </p>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 text-white/40 text-[11px]">
+          <p>
+            © 2026 Rupee Rise Ventures. All rights reserved.
+          </p>
+          <p className="text-white/30 text-[10px] leading-relaxed max-w-2xl md:text-right">
+            RUPEE RISE VENTURES PRIVATE LIMITED · CIN: U68100KL2026PTC104867 · RoC-Ernakulam · Regd. Office: 4/99/a, Panjakshari, College Junction, Kattakada, Nedumangad, Thiruvananthapuram, Kerala, India 695572
+          </p>
+        </div>
       </div>
 
       <div className="w-full max-w-full flex justify-center relative z-0 mt-8 overflow-hidden">

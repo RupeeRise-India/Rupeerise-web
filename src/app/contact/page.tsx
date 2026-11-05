@@ -8,8 +8,18 @@ import ContactForm from '@/components/ContactForm';
 import Image from 'next/image';
 
 export const metadata = {
-  title: "Contact Us",
-  description: "Get in touch with Rupee Rise Ventures (Rupeeriseventures) across Kochi, Trivandrum, Hyderabad, Bangalore, and Dubai for capital, real estate, portfolio management, and learning.",
+  title: "Contact Us | Rupee Rise Ventures Private Limited",
+  description: "Get in touch with Rupee Rise Ventures Private Limited (CIN: U68100KL2026PTC104867) across Kochi, Trivandrum, Hyderabad, Bangalore, and Dubai for capital, real estate, portfolio management, and learning.",
+  keywords: [
+    "Contact Rupee Rise Ventures",
+    "Rupee Rise Ventures Private Limited",
+    "Rupee Rise Ventures Address",
+    "Rupee Rise Ventures Phone",
+    "U68100KL2026PTC104867",
+    "Kattakada",
+    "Thiruvananthapuram",
+    "Kerala",
+  ],
   alternates: {
     canonical: "/contact",
   },
@@ -79,6 +89,13 @@ export default function ContactPage() {
                     <div>
                       <p className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-2">Website</p>
                       <a href="https://rupeeriseventures.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-gold transition-colors text-[15px]">rupeeriseventures.com</a>
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-white/50 uppercase tracking-widest font-bold mb-2">Registered Office</p>
+                      <p className="text-white/80 text-[13px] leading-relaxed">
+                        4/99/a, Panjakshari, College Junction, Kattakada, Nedumangad, Thiruvananthapuram, Kerala, India 695572
+                      </p>
+                      <p className="text-[11px] text-white/40 mt-1 font-mono">CIN: U68100KL2026PTC104867</p>
                     </div>
                   </div>
                 </div>

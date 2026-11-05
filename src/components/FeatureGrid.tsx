@@ -140,7 +140,7 @@ export default function FeatureGrid() {
                 Managing Director
               </p>
               <p className={`text-brand-gold text-2xl tracking-wide ${alexBrush.className}`}>
-                Parmeswar Mohan Pillai
+                Parameswar Mohan Pillai
               </p>
             </div>
           </div>

@@ -13,10 +13,35 @@ const alexBrush = Alex_Brush({
 });
 
 export const metadata = {
-  title: "About Us",
-  description: "Learn about Rupee Rise Ventures (Rupeeriseventures) — a multi-business venture ecosystem built around finance, strategy, and sustainable growth across India and Dubai.",
+  title: "About Us | Rupee Rise Ventures Private Limited",
+  description: "Learn about Rupee Rise Ventures Private Limited (CIN: U68100KL2026PTC104867) — a multi-business venture ecosystem led by Managing Director Parameswar Mohan Pillai, operating across finance, capital, real estate, and growth in India and Dubai.",
+  keywords: [
+    "Rupee Rise Ventures Private Limited",
+    "Rupee Rise Ventures Pvt Ltd",
+    "RUPEE RISE VENTURES",
+    "U68100KL2026PTC104867",
+    "Parameswar Mohan Pillai",
+    "PARAMESWAR MOHAN PILLAI",
+    "Yuvraj Prasad",
+    "RoC Ernakulam",
+    "Thiruvananthapuram",
+    "Kerala",
+    "Venture Ecosystem",
+  ],
   alternates: {
     canonical: "/about",
+  },
+};
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://rupeeriseventures.com/about#webpage",
+  "url": "https://rupeeriseventures.com/about",
+  "name": "About Rupee Rise Ventures Private Limited",
+  "description": "Corporate information, leadership, principles, and strategic ecosystem overview for Rupee Rise Ventures Private Limited (CIN: U68100KL2026PTC104867).",
+  "mainEntity": {
+    "@id": "https://rupeeriseventures.com/#organization",
   },
 };
 
@@ -55,6 +80,10 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-brand-dark text-brand-light font-sans flex flex-col w-full overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
       
       {/* =========================================================================
           SECTION 1 (DARK): HEADER & HERO
@@ -126,7 +155,7 @@ export default function AboutPage() {
                   </p>
                   <div className="pt-3 border-t border-black/10 mt-4 flex flex-col">
                     <span className="text-brand-gold text-[9px] uppercase tracking-widest font-bold">Managing Director</span>
-                    <span className={`text-brand-dark text-2xl tracking-wide ${alexBrush.className}`}>Parmeswar Mohan Pillai</span>
+                    <span className={`text-brand-dark text-2xl tracking-wide ${alexBrush.className}`}>Parameswar Mohan Pillai</span>
                   </div>
                 </div>
               </AnimatedSection>
@@ -298,6 +327,120 @@ export default function AboutPage() {
                     <line x1="2" y1="12" x2="22" y2="12"></line>
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                   </svg>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          SECTION 6.5 (LIGHT/DARK HYBRID): CORPORATE INFORMATION & GOVERNANCE
+          ========================================================================= */}
+      <div className="w-full bg-[#f6f3eb] text-brand-dark py-20 md:py-28 px-4 md:px-10 border-b border-black/5">
+        <div className="max-w-[1536px] mx-auto">
+          <AnimatedSection delay={0.1}>
+            <p className="text-brand-gold text-[10px] uppercase tracking-widest font-bold mb-4">Corporate Governance</p>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+              <ScrollHeading 
+                text="Rupee Rise Ventures Private Limited" 
+                align="left"
+                className="text-3xl md:text-[38px] font-medium leading-[1.15] text-brand-dark" 
+              />
+              <p className="text-black/60 text-xs md:text-sm max-w-md">
+                Incorporated with the Ministry of Corporate Affairs (MCA), Government of India, upholding institutional standards of compliance and governance.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1: Incorporation */}
+            <AnimatedSection delay={0.2} className="h-full">
+              <div className="bg-white rounded-3xl p-8 border border-black/10 shadow-sm flex flex-col justify-between h-full">
+                <div>
+                  <div className="w-9 h-9 rounded-full bg-brand-gold/15 flex items-center justify-center text-brand-dark mb-6">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4M5 21V10.85M19 21V10.85M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/></svg>
+                  </div>
+                  <h3 className="text-base font-semibold text-brand-dark mb-4">Company Registration</h3>
+                  <div className="space-y-3 text-xs leading-relaxed text-black/70">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-black/40 block">Corporate Identification Number (CIN)</span>
+                      <span className="font-mono font-semibold text-brand-dark text-[13px]">U68100KL2026PTC104867</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-black/40 block">Registration Number</span>
+                      <span className="font-mono font-medium text-brand-dark">104867</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-black/40 block">Registrar of Companies</span>
+                      <span className="font-medium text-brand-dark">RoC-Ernakulam (Kerala)</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-black/40 block">Incorporation Date</span>
+                      <span className="font-medium text-brand-dark">21 July, 2026</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-black/10 mt-6 flex items-center justify-between">
+                  <span className="text-[11px] font-medium text-black/50">Company Status</span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Active
+                  </span>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 2: Leadership */}
+            <AnimatedSection delay={0.3} className="h-full">
+              <div className="bg-white rounded-3xl p-8 border border-black/10 shadow-sm flex flex-col justify-between h-full">
+                <div>
+                  <div className="w-9 h-9 rounded-full bg-brand-gold/15 flex items-center justify-center text-brand-dark mb-6">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <h3 className="text-base font-semibold text-brand-dark mb-4">Board of Directors</h3>
+                  <div className="space-y-4 text-xs leading-relaxed text-black/70">
+                    <div className="p-3 rounded-2xl bg-black/[0.02] border border-black/5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold block">Managing Director</span>
+                      <p className="text-[14px] font-semibold text-brand-dark mt-0.5">PARAMESWAR MOHAN PILLAI</p>
+                      <p className="text-[11px] text-black/50 font-mono mt-0.5">DIN: 11841911</p>
+                    </div>
+                    <div className="p-3 rounded-2xl bg-black/[0.02] border border-black/5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-brand-gold block">Director</span>
+                      <p className="text-[14px] font-semibold text-brand-dark mt-0.5">YUVRAJ PRASAD</p>
+                      <p className="text-[11px] text-black/50 font-mono mt-0.5">DIN: 11841912</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-black/10 mt-6 text-[11px] text-black/50">
+                  Class: Private Company limited by Shares (Non-govt)
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Card 3: Registered Office */}
+            <AnimatedSection delay={0.4} className="h-full">
+              <div className="bg-white rounded-3xl p-8 border border-black/10 shadow-sm flex flex-col justify-between h-full">
+                <div>
+                  <div className="w-9 h-9 rounded-full bg-brand-gold/15 flex items-center justify-center text-brand-dark mb-6">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <h3 className="text-base font-semibold text-brand-dark mb-4">Registered Office</h3>
+                  <div className="space-y-3 text-xs leading-relaxed text-black/70">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-black/40 block">Official Address</span>
+                      <p className="font-medium text-brand-dark text-[13px] leading-relaxed mt-1">
+                        4/99/a, Panjakshari, College Junction, Kattakada, Nedumangad, Thiruvananthapuram, Kerala, India — 695572
+                      </p>
+                    </div>
+                    <div className="pt-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-black/40 block">Primary Activity</span>
+                      <p className="text-[12px] text-black/70">Real estate activities with own or leased property, capital investments, and multi-business venture operations.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-black/10 mt-6 flex items-center justify-between text-[11px]">
+                  <span className="text-black/50">Jurisdiction</span>
+                  <span className="font-medium text-brand-dark">Kerala, India</span>
                 </div>
               </div>
             </AnimatedSection>

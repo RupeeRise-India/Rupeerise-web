@@ -24,6 +24,13 @@ const FAQ_DATA: FAQItem[] = [
     a: "Rupee Rise Ventures is a multi-business venture ecosystem operating across four core pillars: Capitals, Real Estate, Portfolio Management, and Learning. Rather than treating these sectors as isolated divisions, our model connects capital, strategic advisory, institutional property assets, and proprietary market intelligence under one synchronized structure. This allows us to provide comprehensive end-to-end value creation for founders, investors, and business leaders.",
   },
   {
+    id: "gen-corp",
+    category: "general",
+    categoryLabel: "General & Ecosystem",
+    q: "What is the official legal entity name, CIN, and incorporation details of Rupee Rise?",
+    a: "Rupee Rise Ventures Private Limited is an incorporated private company limited by shares registered under the Ministry of Corporate Affairs (MCA), Government of India (RoC-Ernakulam), with Corporate Identification Number (CIN) U68100KL2026PTC104867 (Registration No: 104867). Incorporated on 21 July 2026, the company is governed by executive leadership including Managing Director Parameswar Mohan Pillai and Director Yuvraj Prasad, with its registered office at 4/99/a, Panjakshari, College Junction, Kattakada, Nedumangad, Thiruvananthapuram, Kerala 695572.",
+  },
+  {
     id: "gen-2",
     category: "general",
     categoryLabel: "General & Ecosystem",
